@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CompareDesignRow } from "./components/CompareDesignRow";
+import { CompareSpecTable } from "./components/CompareSpecTable";
+import { Header } from "./components/Header";
+import { StoreContext } from "./context/StoreContext";
+import { useContext, useEffect } from 'react'
 
 function App() {
+
+  const {showNumber} = useContext(StoreContext)
+
+  useEffect(() => {
+    console.log(showNumber)
+},[showNumber])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className='container'>
+      <Header />
+      <CompareDesignRow />
+      <CompareSpecTable />
+    </div>  
   );
 }
 

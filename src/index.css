@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container > div:not(:first-child){
+  padding: 0 165px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(166, 165, 169, 1);
+  padding: 20px 165px;
+}
+
+.header-title {
+  display: flex;
+}
+
+.header-title > h4 {
+  text-transform: uppercase;
+  margin-right: 48px;
+}
+
+.user-profile {
+  display: flex;
+}
+
+.user-profile h4 {
+  margin-right: 19px;
+}
