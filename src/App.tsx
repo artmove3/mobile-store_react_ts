@@ -14,10 +14,12 @@ function App() {
 },[showNumber, changeShownData])
 
   return (
-    <div className='container' onClick={(e) => {
+    <div className='container'
+      onClick={(e) => {
       e.stopPropagation()
       changeCompareNumber(-1)
-    }}>
+    }}
+    >
       <Header />
       <CompareDesignRow />
       <CompareSpecTable />

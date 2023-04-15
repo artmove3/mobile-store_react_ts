@@ -9,24 +9,30 @@ interface IProps {
 export const CompareHiddenContainer = ({index}:IProps) => {
 
     
-    const { hiddenData, switchCompareNumber } = useContext(StoreContext)
+    const { hiddenData, switchCompareNumber, switchItems} = useContext(StoreContext)
 
     let compareContainer = ['switch-compare']
     if(switchCompareNumber === index) {
         compareContainer.push('show')
     }
 
+    const changeHandler = (event:React.MouseEvent<HTMLImageElement>, num: number) => {
+        event.stopPropagation()
+        switchItems(num)
+
+    }
+
     return (
         <div className={compareContainer.join(' ')}>
-                            {hiddenData.map((item, key) => {
-                                return ( 
-                                    <div className={`compare-item ${key}`} key={key}>
-                                        <img src={changeArrows} alt="change-arrows" />
-                                        <img src={item.picture} alt={item.name} />
-                                        <h4>{item.name}</h4>
-                                    </div>
-                                )
-                            })}
-                        </div>
+            {hiddenData.map((item, key) => {
+                return ( 
+                    <div className={`compare-item ${key}`} key={key}>
+                        <img src={changeArrows} onClick={(e) => changeHandler(e, key)} alt="change-arrows" />
+                        <img src={item.picture} alt={item.name} />
+                        <h4>{item.name}</h4>
+                    </div>
+                )
+            })}
+        </div>
     )
 }
