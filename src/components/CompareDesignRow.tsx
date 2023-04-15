@@ -1,16 +1,18 @@
 import { useContext } from 'react'
 import { StoreContext } from '../context/StoreContext'
 import arrow from '../pictures/arrow-dropdown.svg'
-
+import { CompareHiddenContainer } from './CompareHiddenContainer'
 
 
 export const CompareDesignRow = () => {
 
-    const {currentData, shownData, hiddenData, showNumber, changeShownNumber } = useContext(StoreContext)
+    const { currentData, shownData, showNumber, changeShownNumber, changeCompareNumber } = useContext(StoreContext)
 
-    
 
-    
+    const arrowClickHandler = (num:number, event:React.MouseEvent<HTMLImageElement>) => {
+        event.stopPropagation()
+        changeCompareNumber(num)
+    }
 
 
     return (
@@ -25,9 +27,10 @@ export const CompareDesignRow = () => {
                 <div className='design'>
                     {shownData.map((item, key) => <div key={key} className={`design ${item.name}`}>
                         <img src={item.picture} alt={item.name}></img>
-                        <img src={arrow} alt="arrow-dropdown" />
-                        <h3 className={`title ${item.name}`}>{item.name}</h3>
-                        </div>)}
+                        {showNumber < 6 && <img id={`${key}`} onClick={(e) => arrowClickHandler(key, e)} src={arrow} alt="arrow-dropdown" />}
+                        <CompareHiddenContainer index={key} />
+                            <h3 className={`title ${item.name}`}>{item.name}</h3>
+                    </div>)}
                 </div>
 
             </div>
