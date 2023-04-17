@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/mobile-store_react_ts/static/css/main.2acc63dc.css",
+    "main.js": "/mobile-store_react_ts/static/js/main.1e6644c3.js",
+    "static/media/realme8.png": "/mobile-store_react_ts/static/media/realme8.e4a5a798be22f0757c1d.png",
+    "static/media/iPhoneXr.png": "/mobile-store_react_ts/static/media/iPhoneXr.786f834336c7bca27ff4.png",
+    "static/media/XiaomiMi.png": "/mobile-store_react_ts/static/media/XiaomiMi.5686cb1a7336a80dfb4b.png",
+    "static/media/SamsungGA72.png": "/mobile-store_react_ts/static/media/SamsungGA72.0902f4e9e4471713f551.png",
+    "static/media/iPhone.png": "/mobile-store_react_ts/static/media/iPhone.0562ebdff52e99c07145.png",
+    "static/media/profile.svg": "/mobile-store_react_ts/static/media/profile.cd5bb8031448c6162083a6afa3bf9af6.svg",
+    "static/media/change.svg": "/mobile-store_react_ts/static/media/change.12a587cb117839bcd95cac3ba6835f88.svg",
+    "index.html": "/mobile-store_react_ts/index.html",
+    "static/media/false.svg": "/mobile-store_react_ts/static/media/false.0113cea45ba9bac007d1ddc91b89603a.svg",
+    "static/media/check.svg": "/mobile-store_react_ts/static/media/check.8cc5ee93091c4acce9ce3cef28aaf064.svg",
+    "static/media/true.svg": "/mobile-store_react_ts/static/media/true.39333c42cee51e5572bfd26df80b5709.svg",
+    "static/media/arrow-dropdown.svg": "/mobile-store_react_ts/static/media/arrow-dropdown.575a3326f949895f3d86c1f9f78a1db7.svg",
+    "main.2acc63dc.css.map": "/mobile-store_react_ts/static/css/main.2acc63dc.css.map",
+    "main.1e6644c3.js.map": "/mobile-store_react_ts/static/js/main.1e6644c3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2acc63dc.css",
+    "static/js/main.1e6644c3.js"
+  ]
+}
