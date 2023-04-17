@@ -5,7 +5,7 @@ import falseSign from '../pictures/false.svg'
 
 export const CompareSpecTable = () => {
 
-    const {shownData, switchCompareDiff} = useContext(StoreContext)
+    const { shownData, switchCompareDiff, changeCompareNumber, changeSearchValue } = useContext(StoreContext)
 
     const shownDataKey = Object.keys(shownData[0])
     const shownDataKeyRus = [
@@ -38,7 +38,11 @@ export const CompareSpecTable = () => {
 
     return (
     
-        <div className='compare-spec'>
+        <div className='compare-spec' onClick={(e) => {
+            e.stopPropagation()
+            changeCompareNumber(-1)
+            changeSearchValue('')
+            }}>
                 {shownDataKey.map((key, i) => {
                     return (
                         i > 1 && !(switchCompareDiff && compareDiff(key as keyof IData)) && <div key={i} className={`compare ${key}`}>

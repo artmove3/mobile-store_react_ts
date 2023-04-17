@@ -79,6 +79,11 @@ h3 {
   list-style: none;
   color: rgba(13, 90, 220, 1);
   margin-left: 4px;
+  
+}
+
+.compare-design .title ul li:not(:first-child) {
+  cursor: pointer;
 }
 
 .compare-design .title ul li.clicked {
@@ -114,7 +119,7 @@ h3 {
   position: absolute;
   top: 50%;
   right: 0;
-  
+  cursor: pointer;
 }
 
 
@@ -164,12 +169,13 @@ h3 {
   padding: 10px 37px 9px 16px;
   border-radius: 4px;
   line-height: 28.13px;
+  font-size: 24px;
+  font-weight: 400;
 }
 
 .design .design-sample .switch-compare.show input::placeholder {
   color: rgba(193, 193, 193, 1);
-  font-size: 24px;
-  font-weight: 400;
+  
   
 }
 
@@ -189,6 +195,7 @@ h3 {
 .compare-switch {
   display: flex;
   align-self: flex-end;
+  cursor: pointer;
 }
 
 .compare-switch h4 {
@@ -196,6 +203,7 @@ h3 {
   margin-left: 14px;
   font-weight: 500;
   color: rgba(13, 90, 220, 1);
+  cursor: pointer;
   }
 
 .compare-spec {
