@@ -42,8 +42,13 @@ export const CompareSpecTable = () => {
                 {shownDataKey.map((key, i) => {
                     return (
                         i > 1 && !(switchCompareDiff && compareDiff(key as keyof IData)) && <div key={i} className={`compare ${key}`}>
-                            <h3>{shownDataKeyRus[i - 2]}</h3>
-                            {shownData.map((item, i) => typeof item[key as keyof IData] === 'boolean' ? <img key={i*10 + i} src={!!item[key as keyof IData] ? trueSign : falseSign} alt='condition-sign'></img> : <h3 key={i*10 + i}>{item[key as keyof IData]}</h3>)}
+                            <div className='compare-spec_title'>
+                                <h3>{shownDataKeyRus[i - 2]}</h3>
+                            </div>
+                            
+                            {shownData.map((item, i) => typeof item[key as keyof IData] === 'boolean' ? <div key={i*10 + i} className='compare-spec_item'><img src={!!item[key as keyof IData] ? trueSign : falseSign} alt='condition-sign'></img></div> : <div key={i*10 + i} className='compare-spec_item'><h3>{item[key as keyof IData]}</h3></div>)}
+                            
+                           
                         </div>
                     )
                 })}

@@ -9,30 +9,43 @@ interface IProps {
 export const CompareHiddenContainer = ({index}:IProps) => {
 
     
-    const { hiddenData, switchCompareNumber, switchItems} = useContext(StoreContext)
+    const { hiddenData, searchbarValue, searchedData, switchCompareNumber, changeSearchValue, switchItems } = useContext(StoreContext)
 
     let compareContainer = ['switch-compare']
     if(switchCompareNumber === index) {
         compareContainer.push('show')
     }
 
-    const changeHandler = (event:React.MouseEvent<HTMLImageElement>, num: number) => {
-        event.stopPropagation()
+    const changeHandler = (num: number) => {
         switchItems(num)
 
     }
 
+    const inputHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
+        changeSearchValue(event.currentTarget.value)
+    }
+
+    const data = searchbarValue ? searchedData : hiddenData
+
+
     return (
-        <div className={compareContainer.join(' ')}>
-            {hiddenData.map((item, key) => {
-                return ( 
-                    <div className={`compare-item ${key}`} key={key}>
-                        <img src={changeArrows} onClick={(e) => changeHandler(e, key)} alt="change-arrows" />
-                        <img src={item.picture} alt={item.name} />
-                        <h4>{item.name}</h4>
-                    </div>
-                )
-            })}
+        <div className={compareContainer.join(' ')} onClick={(e) => e.stopPropagation()}>
+            {(hiddenData.length > 3 || searchbarValue) && <input 
+            type="text"
+            placeholder="Поиск" 
+            value={searchbarValue} 
+            onChange={(e) => inputHandler(e)}
+            />
+            }
+            {data.map((item, key) => {
+            return ( 
+                <div className={`compare-item ${key}`} key={key}>
+                    <img src={changeArrows} className="change-arrows" onClick={() => changeHandler(key)} alt="change-arrows" />
+                    <img src={item.picture} className="item-picture" alt={item.name} />
+                    <h3>{item.name}</h3>
+                </div>
+            )
+        })}
         </div>
     )
 }

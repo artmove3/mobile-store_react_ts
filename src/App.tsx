@@ -6,24 +6,29 @@ import { useContext, useEffect } from 'react'
 
 function App() {
 
-  const { showNumber, changeShownData, changeCompareNumber } = useContext(StoreContext)
+  const { showNumber, changeShownData, changeCompareNumber, changeSearchValue } = useContext(StoreContext)
 
   useEffect(() => {
     changeShownData(showNumber)
 
 },[showNumber, changeShownData])
 
-  return (
+  return ( 
+  <>
     <div className='container'
       onClick={(e) => {
       e.stopPropagation()
       changeCompareNumber(-1)
+      changeSearchValue('')
+      
     }}
     >
       <Header />
       <CompareDesignRow />
+      </div> 
       <CompareSpecTable />
-    </div>  
+    
+  </> 
   );
 }
 

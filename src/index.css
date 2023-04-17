@@ -7,6 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -16,11 +22,25 @@ code {
   padding: 0 165px;
 }
 
+h1 {
+  font-size: 48px;
+  line-height: 60px;
+  font-weight: 700;
+  color: rgba(130, 130, 134, 1);
+}
+
+h3 {
+  
+  line-height: 21.09px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(166, 165, 169, 1);
-  padding: 20px 165px;
+  padding: 40px 165px;
 }
 
 .header-title {
@@ -40,21 +60,210 @@ code {
   margin-right: 19px;
 }
 
-.switch-compare {
-  display: none;
+.compare-design {
+  display: flex;
+  flex-direction: column;
+}
+.compare-design > .title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
 }
 
-.switch-compare.show {
-  display: block;
+.compare-design .title ul {
+  display: flex;
+  justify-content: space-between;
 }
+
+.compare-design .title ul li {
+  list-style: none;
+  color: rgba(13, 90, 220, 1);
+  margin-left: 4px;
+}
+
+.compare-design .title ul li.clicked {
+  text-decoration: underline;
+}
+
+.compare-design .design {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  
+}
+
+.design .design-sample {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 175px;
+}
+
+.design .design-sample > img:first-child {
+  height: 120px;
+  max-width: 90px;
+}
+
+.design .design-sample > h3 {
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.design .design-sample .arrow-dropdown {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  
+}
+
+
+
+.design .design-sample .switch-compare {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  width: 357px;
+  max-height: 265px;
+  border: 1px solid rgba(227, 227, 227, 1);
+  border-radius: 4px;
+  box-shadow: 0 16px 32px 0 rgba(35, 39, 51, 0.1);
+  background: #fff;
+  padding: 34px 44px 25px 18px;
+  overflow-y: scroll;
+}
+
+.design .design-sample .switch-compare.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.design .design-sample .switch-compare.show .compare-item {
+  display: flex;
+  align-items: center;
+}
+
+.design .design-sample .switch-compare.show .compare-item:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+
+
+.design .design-sample .switch-compare.show .compare-item .item-picture{
+  width: 100px;
+  margin-left: 10px;
+  max-height: 50px;
+  max-width: 38px;
+  margin-right: 22px;
+}
+
+.design .design-sample .switch-compare.show input {
+  margin-bottom: 18px;
+  outline: none;
+  border: 1px solid rgba(193, 193, 193, 1);
+  padding: 10px 37px 9px 16px;
+  border-radius: 4px;
+  line-height: 28.13px;
+}
+
+.design .design-sample .switch-compare.show input::placeholder {
+  color: rgba(193, 193, 193, 1);
+  font-size: 24px;
+  font-weight: 400;
+  
+}
+
 
 .compare-check {
   width: inherit;
 }
 
 #compare-checkbox {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border: 2px solid rgba(193, 193, 194, 1);
   border-radius: 4px;
+  
+}
+
+.compare-switch {
+  display: flex;
+  align-self: flex-end;
+}
+
+.compare-switch h4 {
+  line-height: 25px;
+  margin-left: 14px;
+  font-weight: 500;
+  color: rgba(13, 90, 220, 1);
+  }
+
+.compare-spec {
+  padding: 0 165px 91px;
+  background-color: rgb(244, 249, 252);
+  margin-top: 77px;
+}
+
+.compare-spec .compare {
+  display: flex;
+  justify-content: space-between;
+  padding: 35px 0;
+  border-top: 1px solid rgba(205, 207, 210, 1);
+  
+  
+}
+
+.compare-spec > .compare:last-child {
+  border-bottom: 1px solid rgba(205, 207, 210, 1);
+}
+
+.compare-spec .compare > h3 {
+  font-weight: 500;
+  color: rgba(59, 65, 87, 1);
+}
+
+.compare-spec .compare .compare-spec_title {
+  width: 250px;
+}
+
+.compare-spec .compare .compare-spec_title h3 {
+  font-weight: 500;
+  color: rgba(164, 169, 185, 1);
+  text-transform: uppercase;
+
+}
+
+.compare-spec .compare .compare-spec_item {
+  width: 75px;
+  margin-right: 70px;
+}
+
+.compare-spec .compare .compare-spec_item > h3 {
+  font-weight: 500;
+}
+
+.compare-spec .compare .compare-spec_item > img {
+  vertical-align: middle;
+}
+
+@media(max-width:1439px) {
+  .container > div:not(:first-child) {
+    padding: 0 10px;
+  }
+  .header {
+    padding: 40px 10px;
+  }
+  .compare-spec {
+    padding: 0 10px 20px;
+  }
+}
+
+@media(max-width:768px) {
+  .compare-spec .compare .compare-spec_item {
+    margin: 0 0 0 10px;
+  }
+
+  .compare-spec .compare .compare-spec_title {
+    width: 150px;
+  }
 }

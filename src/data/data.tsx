@@ -3,7 +3,7 @@ import XiaomiMi from '../pictures/XiaomiMi.png'
 import SamsungGA72 from '../pictures/SamsungGA72.png'
 import SamsungGS21 from '../pictures/SamsungGS21.png'
 import iPhoneXr from '../pictures/iPhoneXr.png'
-import realme8 from '../pictures/realme8.jpg'
+import realme8 from '../pictures/realme8.png'
 
 const iPhone12 = {
     "picture": iPhone,
@@ -11,7 +11,7 @@ const iPhone12 = {
     "manufacturer": 'Apple',
     "releaseYear": 2020,
     "screenDiagonal": 6.1,
-    "mCountry": 'China',
+    "mCountry": 'Китай',
     "memory": '128 ГБ',
     "refreshRate": '60 Гц',
     "NFC": false,
@@ -26,7 +26,7 @@ const iPhoneX = {
     "manufacturer": 'Apple',
     "releaseYear": 2022,
     "screenDiagonal": 6.5,
-    "mCountry": 'China',
+    "mCountry": 'Китай',
     "memory": '128 ГБ',
     "refreshRate": '90 Гц',
     "NFC": false,
@@ -41,7 +41,7 @@ const xiaomi = {
     "manufacturer": 'Xiaomi',
     "releaseYear": 2021,
     "screenDiagonal": 6.55,
-    "mCountry": 'China',
+    "mCountry": 'Китай',
     "memory": '128 ГБ',
     "refreshRate": '90 Гц',
     "NFC": true,
@@ -56,7 +56,7 @@ const samsung72 = {
     "manufacturer": 'Samsung',
     "releaseYear": 2021,
     "screenDiagonal": 6.7,
-    "mCountry": 'Vietnam',
+    "mCountry": 'Вьетнам',
     "memory": '128 ГБ',
     "refreshRate": '90 Гц',
     "NFC": true,
@@ -71,7 +71,7 @@ const samsung21 = {
     "manufacturer": 'Samsung',
     "releaseYear": 2022,
     "screenDiagonal": 6.9,
-    "mCountry": 'Vietnam',
+    "mCountry": 'Вьетнам',
     "memory": '256 ГБ',
     "refreshRate": '60 Гц',
     "NFC": false,
@@ -86,7 +86,7 @@ const realme = {
     "manufacturer": 'Realme',
     "releaseYear": 2019,
     "screenDiagonal": 5.0,
-    "mCountry": 'Taiwan',
+    "mCountry": 'Тайвань',
     "memory": '64 ГБ',
     "refreshRate": '60 Гц',
     "NFC": false,
