@@ -5,15 +5,16 @@ export interface IData {
     "picture": string
     "name": string
     "manufacturer": string
-    "releaseYear": number
-    "screenDiagonal": number
+    "releaseYear": string
+    "screenDiagonal": string
     "mCountry": string
     "memory": string
     "refreshRate": string
     "NFC": boolean
     "eSIMsupport": boolean
     "wirelessCharge": boolean
-    "cost": string
+    "cost": string,
+    "id": number
 }
 
 interface IStoreContext {
@@ -30,7 +31,7 @@ interface IStoreContext {
     changeShownData: (val:number, data?: IData[]) => void
     changeCompareDiff: () => void
     changeSearchValue: (val: string) => void
-    switchItems: (val:number) => void
+    switchItems: (val:number, data: IData[]) => void
 
 }
 
@@ -62,18 +63,25 @@ export const StoreState = ({children}: {children: React.ReactNode}) => {
     const [searchbarValue, setSearchbarValue] = useState('')
     const [searchedData, setSearchedData] = useState([...hiddenData])
 
+
+    // calls on initial render and on change currentData and showNumber
     const changeShownData = useCallback((num: number = showNumber, newData?: IData[]) => {
         const data = newData || [...currentData]
         setShownData(data.slice(0, num))
         setHiddenData(data.slice(num))
     }, [currentData, showNumber])
 
+    
+    // set current data displayed on screen (shownData entries)
     const changeCompareNumber = (num:number) => {
         setSwitchCompareNumber(num)
+        changeSearchValue('')
 }
     
     const changeShownNumber = (num:number) => setShowNumber(num)
 
+
+    // checkbox show difference
     const changeCompareDiff = () => setSwitchCompareDiff(prev => !prev)
 
     const changeSearchedData = (data: IData[]) => {
@@ -81,25 +89,43 @@ export const StoreState = ({children}: {children: React.ReactNode}) => {
 
     }
 
+
+    // searchbar value handler
     const changeSearchValue = (str: string) => {
         setSearchbarValue(str)
-        let findedData = [...hiddenData]
+        let findedData = hiddenData
         if(str !== '') {
             findedData = findedData.filter(item => {
-                return item.name.toLowerCase().includes(str)
+                return item.name.toLowerCase().includes(str.toLowerCase())
             })
             
         }
         changeSearchedData(findedData)
+
+        
     }
 
-    const switchItems = (hiddenNum: number) => {
+    // AAAAGGHHHH i lost about two enitre days on that piece of code
+    // switch items between shownData and hiddenData
+    // data = searchedData if searchBarValue !== '' || hiddenData
+    const switchItems = (hiddenNum: number, data: IData[]) => {
  
-        const newData = currentData
-        let deletedData = newData.splice(switchCompareNumber, 1, hiddenData[hiddenNum])
-        newData.splice((hiddenNum + shownData.length), 1, deletedData[0])
+        const currentShownData = [...shownData]
+        const currentHiddenData = [...hiddenData]
+        
+        let newDataItem = data[hiddenNum]
+        let newDataItemId = newDataItem.id
+        let newDataItemPos = currentHiddenData.findIndex(item => item.id === newDataItemId)
+        
+        let currenDataItem = currentShownData[switchCompareNumber]
+        currentHiddenData[newDataItemPos] = currenDataItem
+        
+        currentShownData[switchCompareNumber] = newDataItem
+        
+        
+        const newData = currentShownData.concat(currentHiddenData)
         changeShownData(showNumber, newData)
-       
+        
     }
     
     return (

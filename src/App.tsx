@@ -17,6 +17,7 @@ function App() {
   <>
     <div className='container'
       onClick={(e) => {
+      // close hiddenData container and clean searchbar value
       e.stopPropagation()
       changeCompareNumber(-1)
       changeSearchValue('')
@@ -25,7 +26,7 @@ function App() {
     >
       <Header />
       <CompareDesignRow />
-      </div> 
+      </div>
       <CompareSpecTable />
     
   </> 

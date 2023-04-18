@@ -19,7 +19,7 @@ code {
 }
 
 .container > div:not(:first-child){
-  padding: 0 165px;
+  padding: 0 165px 77px;
 }
 
 h1 {
@@ -135,7 +135,7 @@ h3 {
   box-shadow: 0 16px 32px 0 rgba(35, 39, 51, 0.1);
   background: #fff;
   padding: 34px 44px 25px 18px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .design .design-sample .switch-compare.show {
@@ -146,12 +146,17 @@ h3 {
 .design .design-sample .switch-compare.show .compare-item {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .design .design-sample .switch-compare.show .compare-item:not(:last-child) {
   margin-bottom: 30px;
 }
 
+.design .design-sample .switch-compare.show .compare-item:hover h3 {
+  color: rgba(13, 90, 220, 1);
+  font-weight: 700;
+}
 
 
 .design .design-sample .switch-compare.show .compare-item .item-picture{
@@ -209,7 +214,6 @@ h3 {
 .compare-spec {
   padding: 0 165px 91px;
   background-color: rgb(244, 249, 252);
-  margin-top: 77px;
 }
 
 .compare-spec .compare {

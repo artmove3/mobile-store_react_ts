@@ -9,23 +9,26 @@ interface IProps {
 export const CompareHiddenContainer = ({index}:IProps) => {
 
     
-    const { hiddenData, searchbarValue, searchedData, switchCompareNumber, changeSearchValue, switchItems } = useContext(StoreContext)
+    const { hiddenData, searchbarValue, searchedData, switchCompareNumber, changeSearchValue, changeCompareNumber, switchItems } = useContext(StoreContext)
 
     let compareContainer = ['switch-compare']
     if(switchCompareNumber === index) {
         compareContainer.push('show')
     }
+    
+    let data = searchbarValue ? searchedData : hiddenData
 
     const changeHandler = (num: number) => {
-        switchItems(num)
-
+        switchItems(num, data)
+        changeCompareNumber(-1)
+        
     }
 
     const inputHandler = (event:React.ChangeEvent<HTMLInputElement>) => {
         changeSearchValue(event.currentTarget.value)
     }
 
-    const data = searchbarValue ? searchedData : hiddenData
+    
 
 
     return (
@@ -39,8 +42,8 @@ export const CompareHiddenContainer = ({index}:IProps) => {
             }
             {data.map((item, key) => {
             return ( 
-                <div className={`compare-item ${key}`} key={key}>
-                    <img src={changeArrows} className="change-arrows" onClick={() => changeHandler(key)} alt="change-arrows" />
+                <div className={`compare-item ${key}`} onClick={() => changeHandler(key)} key={key}>
+                    <img src={changeArrows} className="change-arrows" alt="change-arrows" />
                     <img src={item.picture} className="item-picture" alt={item.name} />
                     <h3>{item.name}</h3>
                 </div>

@@ -45,7 +45,7 @@ export const CompareSpecTable = () => {
             }}>
                 {shownDataKey.map((key, i) => {
                     return (
-                        i > 1 && !(switchCompareDiff && compareDiff(key as keyof IData)) && <div key={i} className={`compare ${key}`}>
+                        i > 1 && i < 12 && !(switchCompareDiff && compareDiff(key as keyof IData)) && <div key={i} className={`compare ${key}`}>
                             <div className='compare-spec_title'>
                                 <h3>{shownDataKeyRus[i - 2]}</h3>
                             </div>

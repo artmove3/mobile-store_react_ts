@@ -14,7 +14,6 @@ export const CompareDesignRow = () => {
         event.stopPropagation()
         changeCompareNumber(num)
     }
-    
     const allShowNumber = document.querySelectorAll('li')
     allShowNumber.forEach(item => item.removeAttribute('class'))
     const currentShowNumberSelected = document.getElementById(`${showNumber - 1}`)
